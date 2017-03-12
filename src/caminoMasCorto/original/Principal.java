@@ -1,7 +1,5 @@
 package caminoMasCorto.original;
 
-import java.util.List;
-
 public class Principal {
 
 	Espacio espacio;
@@ -15,20 +13,26 @@ public class Principal {
 		//espacio.verEspacio();
 		buscador = new BuscadorCaminoMasCorto(espacio);
 	}
+
+    public static void main(String[] args) {
+        Principal programa = new Principal();
+        long instanteInicial = System.currentTimeMillis();
+        programa.buscarCaminoMasCorto();
+        long instanteFinal = System.currentTimeMillis();
+        System.out.println("Tiempo utilizado:  " + (instanteFinal - instanteInicial));
+        //programa.mostrarCaminoMasCorto();
+    }
+
 	public void buscarCaminoMasCorto(){
 		rutaMasCorta = buscador.buscarCaminoMasCorto();
-		
+
 	}
-	private void mostrarCaminoMasCorto() {
+
+    private void mostrarCaminoMasCorto() {
 		espacio.verRutaEnEspacio(rutaMasCorta);
-		
-		
-	}
-	public static void main(String[] args) {
-		Principal programa = new Principal();
-		programa.buscarCaminoMasCorto();
-		programa.mostrarCaminoMasCorto();
-	}
+
+
+    }
 	
 
 }

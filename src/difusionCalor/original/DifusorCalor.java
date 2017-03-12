@@ -3,7 +3,6 @@ package difusionCalor.original;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import java.util.Scanner;
 
 public class DifusorCalor extends Observable{
 	
@@ -30,8 +29,7 @@ public class DifusorCalor extends Observable{
 		
 		nuevaMalla = new Malla(dimensionX,dimensionY);
 		inicializarBordes(nuevaMalla);
-		
-		
+
 		for (int i = 1; i<dimensionX-1; i++){
 			for (int j = 1; j<dimensionY-1; j++){
 				PuntoCalor punto = new PuntoCalor(i,j,0);

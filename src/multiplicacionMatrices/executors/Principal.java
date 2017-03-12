@@ -1,10 +1,10 @@
 package multiplicacionMatrices.executors;
 
 public class Principal {
-	
-	final int DIMENSIONX = 2000;
-	final int DIMENSIONY = 2000;
-	int matrizA[][];
+
+    final int DIMENSIONX = 1000;
+    final int DIMENSIONY = 1000;
+    int matrizA[][];
 	int matrizB[][];
 	long resultado[][];
 	
@@ -15,10 +15,21 @@ public class Principal {
 		matrizB = new GeneradorMatriz(DIMENSIONY,DIMENSIONX).getMatriz();
 		multiplicador = new MultiplicadorMatrices (matrizA,matrizB);
 	}
+
+    public static void main(String[] args) {
+        Principal programa = new Principal();
+        long instanteInicial = System.currentTimeMillis();
+        programa.multiplicar();
+        long instanteFinal = System.currentTimeMillis();
+        System.out.println("Tiempo utilizado:  " + (instanteFinal - instanteInicial));
+        programa.visualizarMatrices();
+    }
+
 	public void multiplicar(){
 		resultado = multiplicador.multiplicar();
 	}
-	private void visualizarMatriz(int [][] matriz,String texto){
+
+    private void visualizarMatriz(int [][] matriz,String texto){
 		System.out.println(texto);
 		int dimX = matriz.length;
 		int dimY = matriz[0].length;
@@ -29,7 +40,8 @@ public class Principal {
 			System.out.println();
 		}
 	}
-	private void visualizarMatrizLong (long [][] matriz,String texto){
+
+    private void visualizarMatrizLong (long [][] matriz,String texto){
 		System.out.println(texto);
 		int dimX = matriz.length;
 		int dimY = matriz[0].length;
@@ -40,18 +52,11 @@ public class Principal {
 			System.out.println();
 		}
 	}
-	public void visualizarMatrices(){
+
+    public void visualizarMatrices(){
 		visualizarMatriz(matrizA, "Matriz A: ");
 		visualizarMatriz(matrizB, "Matriz : ");
 		visualizarMatrizLong(resultado, "Resultado: ");
-	}
-	public static void main(String[] args) {
-		Principal programa = new Principal();
-		long instanteInicial = System.currentTimeMillis();
-		programa.multiplicar();
-		long instanteFinal = System.currentTimeMillis();
-		System.out.println("Tiempo utilizado:  "+ (instanteFinal - instanteInicial));
-		//programa.visualizarMatrices();
 	}
 	
 
